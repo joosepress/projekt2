@@ -1,13 +1,24 @@
 <?php
-$host = "localhost";
-$username = "joosepress";
-$password = "na0r0b0t8";
-$database = "mydb";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "projekt";
 
-$connection = mysqli_connect($host, $username, $password, $database);
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    // sql to delete a record
+    $sql = "SELECT * FROM users";
 
-if(!$connection){
-	die("connection failed: " . mysqli_connect_error());
-}
+    // use exec() because no results are returned
+    $conn->exec($sql);
+    }
+catch(PDOException $e)
+    {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+
+$conn = null;
 ?>
