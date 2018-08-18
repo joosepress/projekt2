@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$username = "root";
-$password = "";
-$database = "monolith";
+$username = "joosepress";
+$password = "na0r0b0t8";
+$database = "mydb";
 
 $connection = mysqli_connect($host, $username, $password, $database);
 
